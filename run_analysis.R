@@ -3,7 +3,6 @@ setwd("C:/Users/marct/OneDrive - Tecnocampus Mataro-Maresme/Documentos/CURSOS/R 
 
 
 #1. Merge the datasets
-rf("")
 features <- read.table("C:/Users/marct/OneDrive - Tecnocampus Mataro-Maresme/Documentos/CURSOS/R PATH COURSERA/Cleaning & Tidying Data in R/Week 4/UCI HAR Dataset/features.txt", sep="", col.names=c("n", "functions"))
 activities <- read.table("C:/Users/marct/OneDrive - Tecnocampus Mataro-Maresme/Documentos/CURSOS/R PATH COURSERA/Cleaning & Tidying Data in R/Week 4/UCI HAR Dataset/activity_labels.txt", sep="", col.names = c("code", "activity"))
 subject_test <- read.table("C:/Users/marct/OneDrive - Tecnocampus Mataro-Maresme/Documentos/CURSOS/R PATH COURSERA/Cleaning & Tidying Data in R/Week 4/UCI HAR Dataset/test/subject_test.txt", sep="", col.names = "subject")
@@ -20,22 +19,18 @@ ymerged <- rbind(ytest, ytrain)
 colnames(ymerged) <- "code"
 ymerged <- merge(ymerged, activities, by="code")
 
-
 subjectmerged <- rbind(subject_test, subject_train)
 xymerged <- cbind(xmerged, ymerged, subjectmerged)
 
 xymerged2 <- xymerged[, c(562, 563, 564, 1:561)]
-xymerged2$subject
-
-View(xymerged2)
 
 #2. Find out the mean and sd for each variable
 a <- function(x){
         output <- data.frame()
         means <- numeric()
         sd <- numeric()
+        names <- colnames(x)
         for(i in seq_along(x)){
-                names <- colnames(x)
                 means <- c(means, mean(x[,i], na.rm=TRUE))
                 sd <- c(sd, sd(x[,i], na.rm=TRUE))
         }
