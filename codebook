@@ -1,0 +1,18 @@
+Description of the dataset:
+
+activities: data.frame that shows the correspondence between the code and the activity name
+subject_test: data.frame that contains the number that idenfies each subject that participated in the test.
+subject_train: data.frame that contains the number that idenfies each subject that participated in the train.
+subjectmerged: data.frame that contains all the numbers (identifying train and test subjects) and that was created by row binding subject_test and subject_train
+xtest: data.frame that contains each of the variables and their values measured in the test
+xtrain: data.frame that contains each of the variables and their values measured in the train.
+xmerged: data.frame that contains all the measurements and variables measured in both xtrain and xtest. It was created by row binding both datasets (xtest, xtrain)
+ytest: data.frame that contains each of the code for the activities that happened while measuring the variables in the test.
+ytrain: data.frame that contains each of the code for the activities that happened while measuring the variables in the train.
+ymerged: data.frame that contains all the measurements and variables measured in both xtrain and xtest. It was created by row binding both datasets (ytest, ytrain) and then merging with  the activities dataset by the code
+xymerged: data.frame that column binds xmerged, ymerged and subjectmerged
+xymerged2: reordered version of xymerged (xymerged[, c(562, 563, 564, 1:561)])
+
+a: function that allows to extract the mean and sd for each variable of the dataset(xymerged2)
+t: dataframe resulting from applying the function a to the dataset(xymerged2)
+xymerged_grouped3: data.frame that contains the mean of each variable grouped by activity and subject.
