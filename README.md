@@ -1,4 +1,5 @@
-#1: Loading, cleaning & merging data
+#1: Loading, cleaning & merging data (includes changing column names)
+
 First I load the datasets (features.txt, activity_labels.txt, subject_test.txt, subject_train.txt, X_test.txt, X_train.txt, Y_test.txt, Y_train.txt) into R, through the data.table() command
 In the process of reading the features.txt dataset, I call the columns: c("n", "functions")
 In the process of reading the activity_labels.txt I call the columns: c("code", "activity")
